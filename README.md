@@ -32,23 +32,23 @@ The Xen Hypervisor will manage multiple VMs, each dedicated to a specific ADAS f
 
 ```plaintext
 Hardware Layer
-┌───────────────────────┐
-│   Automotive Hardware │
-│ (Cameras, Radar, etc.)│
-└───────────────────────┘
-           │
-           ▼
-Hypervisor Layer (Xen Hypervisor)
-┌─────────────────────────────────────────┐
-│            Xen Hypervisor               │
-└─────────────────────────────────────────┘
+                  ┌───────────────────────┐
+                  │   Automotive Hardware │
+                  │ (Cameras, Radar, etc.)│
+                  └───────────────────────┘
+                             │
+                             ▼
+               Hypervisor Layer (Xen Hypervisor)
+          ┌─────────────────────────────────────────┐
+          │            Xen Hypervisor               │
+          └─────────────────────────────────────────┘
            │            │            │            │
            ▼            ▼            ▼            ▼
-┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
-│   VM1    │ │   VM2    │ │   VM3    │ │   VM4    │
-│ Lane-Keeping │ Collision │ Adaptive │ Infotainment│
-│ Assistance   │ Avoidance │ Cruise   │ System      │
-└──────────┘ └──────────┘ └──────────┘ └──────────┘
+┌────────────┐ ┌────────────┐ ┌────────────┐ ┌────────────┐
+│     VM1    │ │    VM2     │ │     VM3    │ │     VM4    │
+│Lane-Keeping│ │ Collision  │ │  Adaptive  │ │Infotainment│
+│ Assistance │ │ Avoidance  │ │   Cruise   │ │   System   │
+└────────────┘ └────────────┘ └────────────┘ └────────────┘
 ```
 
 #### Isolation of VMs

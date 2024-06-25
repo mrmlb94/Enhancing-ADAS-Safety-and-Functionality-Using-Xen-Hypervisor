@@ -183,29 +183,29 @@ To ensure the safety and functionality of ADAS systems virtualized using the Xen
 **Example Architecture with Redundancy**:
 
 ```plaintext
-Hardware Layer
-┌───────────────────────┐
-│   Automotive Hardware │
-│  (Cameras, Radar, etc.)│
-└───────────────────────┘
-           │
-           ▼
-Hypervisor Layer (Xen Hypervisor)
-┌─────────────────────────────────────────┐
-│            Xen Hypervisor               │
-└─────────────────────────────────────────┘
-           │            │            │            │
-           ▼            ▼            ▼            ▼
-┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
-│   VM1    │ │   VM2    │ │   VM3    │ │   VM4    │
-│ Lane-Keeping │ Collision │ Adaptive │ Infotainment│
-│ Assistance   │ Avoidance │ Cruise   │ System      │
-└──────────┘ └──────────┘ └──────────┘ └──────────┘
-           │            │            │            │
-           ▼            ▼            ▼            ▼
-┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
-│Backup VM1│ │Backup VM2│ │Backup VM3│ │     -    │
-└──────────┘ └──────────┘ └──────────┘ └──────────┘
+                                    Hardware Layer
+                               ┌───────────────────────┐
+                               │   Automotive Hardware │
+                               │ (Cameras, Radar, etc.)│
+                               └───────────────────────┘
+                                            │
+                                            ▼
+                             Hypervisor Layer (Xen Hypervisor)
+                ┌───────────────────────────────────────────────────────┐
+                │                     Xen Hypervisor                    │
+                └───────────────────────────────────────────────────────┘
+                  │                │                │                │
+                  ▼                ▼                ▼                ▼
+           ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+           │      VM1     │ │     VM2      │ │      VM3     │ │     VM4      │
+           │ Lane-Keeping │ │   Collision  │ │   Adaptive   │ │ Infotainment │
+           │  Assistance  │ │   Avoidance  │ │    Cruise    │ │    System    │
+           └──────────────┘ └──────────────┘ └──────────────┘ └──────────────┘
+                  │                 │                │               │
+                  ▼                 ▼                ▼               ▼
+            ┌──────────┐      ┌──────────┐      ┌──────────┐    ┌──────────┐
+            │Backup VM1│      │Backup VM2│      │Backup VM3│    │     -    │
+            └──────────┘      └──────────┘      └──────────┘    └──────────┘
 ```
 
 #### 2. Isolation
@@ -356,29 +356,29 @@ By setting up a comprehensive simulation environment using tools like QEMU and V
 **Architecture Diagram**:
 
 ```plaintext
-Hardware Layer
-┌───────────────────────┐
-│   Automotive Hardware │
-│  (Cameras, Radar, etc.)│
-└───────────────────────┘
-           │
-           ▼
-Hypervisor Layer (Xen Hypervisor)
-┌─────────────────────────────────────────┐
-│            Xen Hypervisor               │
-└─────────────────────────────────────────┘
-           │            │            │            │
-           ▼            ▼            ▼            ▼
-┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
-│   VM1    │ │   VM2    │ │   VM3    │ │   VM4    │
-│ Lane-Keeping │ Collision │ Adaptive │ Infotainment│
-│ Assistance   │ Avoidance │ Cruise   │ System      │
-└──────────┘ └──────────┘ └──────────┘ └──────────┘
-           │            │            │            │
-           ▼            ▼            ▼            ▼
-┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
-│Backup VM1│ │Backup VM2│ │Backup VM3│ │     -    │
-└──────────┘ └──────────┘ └──────────┘ └──────────┘
+                                    Hardware Layer
+                               ┌───────────────────────┐
+                               │   Automotive Hardware │
+                               │ (Cameras, Radar, etc.)│
+                               └───────────────────────┘
+                                            │
+                                            ▼
+                             Hypervisor Layer (Xen Hypervisor)
+                ┌───────────────────────────────────────────────────────┐
+                │                     Xen Hypervisor                    │
+                └───────────────────────────────────────────────────────┘
+                  │                │                │                │
+                  ▼                ▼                ▼                ▼
+           ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+           │      VM1     │ │     VM2      │ │      VM3     │ │     VM4      │
+           │ Lane-Keeping │ │   Collision  │ │   Adaptive   │ │ Infotainment │
+           │  Assistance  │ │   Avoidance  │ │    Cruise    │ │    System    │
+           └──────────────┘ └──────────────┘ └──────────────┘ └──────────────┘
+                  │                 │                │               │
+                  ▼                 ▼                ▼               ▼
+            ┌──────────┐      ┌──────────┐      ┌──────────┐    ┌──────────┐
+            │Backup VM1│      │Backup VM2│      │Backup VM3│    │     -    │
+            └──────────┘      └──────────┘      └──────────┘    └──────────┘
 ```
 
 **VM Configurations**:
